@@ -1,9 +1,9 @@
 # EXPERIMENT-NO--04-Distance measurement using Ultrasonic sensor
- ###  DATE: 
+ ###  DATE: 7/3/24
 
-###  NAME: 
-###  ROLL NO :
-###  DEPARTMENT:
+###  NAME:poorna venkata si teja.v 
+###  ROLL NO :212221080085 
+###  DEPARTMENT:mechanical
 ## AIM: 
 To interface an ultrasonic pair and measure the distance in centimeters , calculate the error
  
@@ -38,7 +38,7 @@ The time between the transmission and reception of the signal allows us to calcu
 distance to an object = ((speed of sound in the air)*time)/2
 speed of sound in the air at 20ºC (68ºF) = 343m/s
 
-### FIGURE 01 CIRCUIT OF INTERFACING ULTRASONIC SENSOR 
+### FIGURE 01 CIRCUIT OF INTERFACING ULTRASONIC SENSOR C:\Users\leela\Downloads\Screenshot 2024-03-07 112558 (1).png
 
 
 ![image](https://user-images.githubusercontent.com/36288975/166430594-5adb4ca9-5a42-4781-a7e6-7236b3766a85.png)
@@ -60,7 +60,53 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 ### PROGRAM 
 ```
+const int trigpin=10;
+const int echopin=9;
+int red=7;
+int green=6;
+long duration;
+float distance;
 
+void setup()
+{
+  pinMode(trigpin, OUTPUT);
+    pinMode(echopin, INPUT);
+    pinMode(red, OUTPUT);
+    pinMode(green, OUTPUT);
+  Serial.begin(9600);
+  
+
+
+
+
+}
+
+void loop()
+{
+  digitalWrite(trigpin, LOW);
+  delay(20); 
+  digitalWrite(trigpin, HIGH);
+  delay(20);
+    digitalWrite(trigpin, LOW);
+duration=pulseIn(echopin,HIGH);
+  distance=duration*0.034/2;
+  Serial.print(distance);
+  Serial.println("cms");
+  if(distance>5)
+  {
+     digitalWrite(red, HIGH);
+  delay(200); 
+   digitalWrite(red, LOW);
+  delay(200);
+  }
+  else
+  {
+     digitalWrite(green, HIGH);
+  delay(200); 
+   digitalWrite(green, LOW);
+  delay(200); 
+  }
+}
 
 
 
@@ -74,7 +120,8 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 
 ### Distance vs measurement table 
-
+C:\Users\leela\Downloads\Screenshot 2024-02-29 210005.png
+C:\Users\leela\Downloads\Screenshot 2024-02-29 205926 (2).png
 			
  
 			
